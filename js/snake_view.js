@@ -3,18 +3,15 @@
   window.SnakeGame = window.SnakeGame || {};
 
 
-  var View = SnakeGame.View = function ($el) {
+  var View = SnakeGame.View = function ($el, $menu) {
     this.$el = $el;
+    this.$menu = $menu
 
     this.board = new SnakeGame.Board(20);
     this.setupGrid();
 
-    this.intervalId = window.setInterval(
-      this.step.bind(this),
-      View.STEP_INCR
-    );
-
     $(window).on("keydown", this.handleKeyEvent.bind(this));
+    this.$menu.find("#start").on("click", this.newGame.bind(this));
   };
 
   View.KEYS = {
@@ -72,18 +69,22 @@
       this.render();
     } else {
       window.clearInterval(this.intervalId);
-      $("#new-game").one("click", function () {
-        this.newGame();
-      });
+      this.showMenu();
     }
   };
 
   View.prototype.newGame = function () {
+    window.clearInterval(this.intervalId);
+    this.$menu.hide();
     this.board = new SnakeGame.Board(20);
     this.setupGrid();
     this.intervalId = window.setInterval(
       this.step.bind(this),
       View.STEP_INCR
     );
-  }
+  };
+
+  View.prototype.showMenu = function () {
+    this.$menu.show();
+  };
 })();

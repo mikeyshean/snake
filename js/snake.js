@@ -115,6 +115,7 @@
 
     if (!this.isValid()) {
       this.segments = [];
+      this.board.apple.position = [];
     }
   };
 
