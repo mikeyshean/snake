@@ -1,0 +1,77 @@
+html, body, figure, ul, li, h1, button {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+
+  font: inherit;
+  text-align: inherit;
+}
+
+h1 {
+  color: #00cc00;
+  margin-top: 40px;
+  font-size: 36px;
+  letter-spacing: 5px;
+  padding: 10px 30px;
+  border: 5px dotted #00cc00;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  position: relative;
+  bottom: -180px;
+  background: #ccc;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+body {
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  font-weight: bold;
+}
+
+.game-wrapper {
+  margin-top: 60px;
+  display: inline-block;
+  position: relative;
+}
+
+.menu {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+figure {
+  display: inline-block;
+  background: #000;
+}
+
+ul:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+li {
+  float: left;
+  width: 20px;
+  height: 20px;
+}
+
+.apple {
+  background: yellow;
+}
+
+.snake {
+  background: #000;
+  border: 1px solid #00A000;
+  width: 18px;
+  height: 18px;
+}
