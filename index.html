@@ -12,6 +12,10 @@
     <div class="game-wrapper">
       <div class="menu">
         <h1 class="title">SNAKE</h1>
+        <div class="high-score">
+          <h4>Your Score:</h4>
+          <span id="score"></span>
+        </div>
         <button id="start">Start</button>
       </div>
       <figure class="snake-game"></figure>
@@ -23,7 +27,7 @@
     <script>
       $(function () {
         new SnakeGame.View($(".snake-game"), $(".menu"));
-      }); 
+      });
     </script>
   </body>
 </html>

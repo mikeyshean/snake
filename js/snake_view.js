@@ -7,7 +7,7 @@
     this.$el = $el;
     this.$menu = $menu
 
-    this.board = new SnakeGame.Board(20);
+    this.board = new SnakeGame.Board(20, 27);
     this.setupGrid();
 
     $(window).on("keydown", this.handleKeyEvent.bind(this));
@@ -43,7 +43,7 @@
     this.$li.filter("." + className).removeClass();
 
     coords.forEach(function(coord){
-      var flatCoord = (coord.i * this.board.dim) + coord.j;
+      var flatCoord = (coord.i * this.board.width) + coord.j;
       this.$li.eq(flatCoord).addClass(className);
     }.bind(this));
   };
@@ -51,9 +51,9 @@
   View.prototype.setupGrid = function () {
     var html = "";
 
-    for (var i = 0; i < this.board.dim; i++) {
+    for (var i = 0; i < this.board.height; i++) {
       html += "<ul>";
-      for (var j = 0; j < this.board.dim; j++) {
+      for (var j = 0; j < this.board.width; j++) {
         html += "<li></li>";
       }
       html += "</ul>";
@@ -69,22 +69,22 @@
       this.render();
     } else {
       window.clearInterval(this.intervalId);
-      this.showMenu();
+      this.$menu.show();
+      this.$menu.find("#start").text("Play again")
+      var $score = this.$menu.find(".high-score")
+      $score.show()
+      $score.find("#score").text(this.board.snake.points)
     }
   };
 
   View.prototype.newGame = function () {
     window.clearInterval(this.intervalId);
     this.$menu.hide();
-    this.board = new SnakeGame.Board(20);
+    this.board = new SnakeGame.Board(20, 27);
     this.setupGrid();
     this.intervalId = window.setInterval(
       this.step.bind(this),
       View.STEP_INCR
     );
-  };
-
-  View.prototype.showMenu = function () {
-    this.$menu.show();
   };
 })();
