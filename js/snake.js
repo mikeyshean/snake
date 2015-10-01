@@ -26,12 +26,12 @@
   };
 
   Apple.prototype.replace = function () {
-    var x = Math.floor(Math.random() * this.board.dim);
-    var y = Math.floor(Math.random() * this.board.dim);
+    var x = Math.floor(Math.random() * this.board.height);
+    var y = Math.floor(Math.random() * this.board.width);
 
     while (this.board.snake.isOccupying([x, y])) {
-      x = Math.floor(Math.random() * this.board.dim);
-      y = Math.floor(Math.random() * this.board.dim);
+      x = Math.floor(Math.random() * this.board.height);
+      y = Math.floor(Math.random() * this.board.width);
     }
 
     this.position = new Coord(x, y);
@@ -42,10 +42,11 @@
     this.turning = false;
     this.board = board;
 
-    var center = new Coord(Math.floor(board.dim/2), Math.floor(board.dim/2));
+    var center = new Coord(Math.floor(board.height/2), Math.floor(board.width/2));
     this.segments = [center];
 
     this.growTurns = 0;
+    this.points = 0;
   };
 
   Snake.DIFFS = {
@@ -105,6 +106,7 @@
 
     if (this.eatApple()) {
       this.board.apple.replace();
+      this.points += 20;
     }
 
     if (this.growTurns > 0) {
@@ -128,15 +130,16 @@
     }
   };
 
-  var Board = SnakeGame.Board = function (dim) {
-    this.dim = dim;
+  var Board = SnakeGame.Board = function (height, width) {
+    this.height = height;
+    this.width = width;
 
     this.snake = new Snake(this);
     this.apple = new Apple(this);
   };
 
   Board.prototype.validPosition = function (coord) {
-    return (coord.i >= 0) && (coord.i < this.dim) &&
-      (coord.j >= 0) && (coord.j < this.dim);
+    return (coord.i >= 0) && (coord.i < this.height) &&
+      (coord.j >= 0) && (coord.j < this.width);
   };
 })();
