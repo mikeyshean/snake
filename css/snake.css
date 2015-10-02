@@ -79,6 +79,32 @@ li {
   height: 15px;
 }
 
+.phone-keys {
+  position: absolute;
+  height: 70px;
+  width: 120px;
+}
+
+#up {
+  bottom: 440px;
+  left: 245px;
+}
+
+#right {
+  bottom: 360px;
+  left: 420px;
+}
+
+#down {
+  bottom: 230px;
+  left: 245px;
+}
+
+#left {
+  bottom: 360px;
+  left: 70px;
+}
+
 .apple {
   background: #f00;
 }
