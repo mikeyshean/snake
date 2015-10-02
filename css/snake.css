@@ -81,27 +81,28 @@ li {
 
 .phone-keys {
   position: absolute;
-  height: 70px;
-  width: 120px;
+  height: 90px;
+  width: 130px;
+  background: red;
 }
 
 #up {
-  bottom: 440px;
-  left: 245px;
+  bottom: 430px;
+  left: 240px;
 }
 
 #right {
-  bottom: 360px;
-  left: 420px;
+  bottom: 350px;
+  left: 410px;
 }
 
 #down {
-  bottom: 230px;
-  left: 245px;
+  bottom: 220px;
+  left: 240px;
 }
 
 #left {
-  bottom: 360px;
+  bottom: 350px;
   left: 70px;
 }
 
