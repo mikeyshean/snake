@@ -11,6 +11,7 @@
     this.setupGrid();
 
     $(window).on("keydown", this.handleKeyEvent.bind(this));
+    $(".phone-keys").on("click", this.handlePhoneKeyEvent.bind(this));
     this.$menu.find("#start").on("click", this.newGame.bind(this));
   };
 
@@ -32,6 +33,13 @@
       e.preventDefault();
       this.newGame();
     }
+  };
+
+  View.prototype.handlePhoneKeyEvent = function (e) {
+    e.preventDefault();
+    var dir = $(e.currentTarget).data("dir");
+    
+    this.board.snake.turn(dir);
   };
 
   View.prototype.render = function () {
