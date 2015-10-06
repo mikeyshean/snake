@@ -38,7 +38,7 @@
   View.prototype.handlePhoneKeyEvent = function (e) {
     e.preventDefault();
     var dir = $(e.currentTarget).data("dir");
-    
+
     this.board.snake.turn(dir);
   };
 

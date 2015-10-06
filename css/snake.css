@@ -83,26 +83,27 @@ li {
   position: absolute;
   height: 90px;
   width: 130px;
+  background: #fff;
 }
 
 #up {
-  bottom: 430px;
-  left: 240px;
+  bottom: 330px;
+  left: 195px;
 }
 
 #right {
-  bottom: 350px;
-  left: 410px;
+  bottom: 250px;
+  left: 335px;
 }
 
 #down {
-  bottom: 220px;
-  left: 240px;
+  bottom: 160px;
+  left: 195px;
 }
 
 #left {
-  bottom: 350px;
-  left: 70px;
+  bottom: 250px;
+  left: 55px;
 }
 
 .apple {
